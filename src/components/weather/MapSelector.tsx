@@ -117,7 +117,7 @@ const MapSelector = ({
           // @ts-ignore
           center={[initialLatitude, initialLongitude]}
           zoom={13}
-          style={{ height: '400px', width: '100%' }}
+          style={{ height: '440px', width: '100%' }}
           whenCreated={(mapInstance: any) => {
             mapRef.current = mapInstance;
           }}

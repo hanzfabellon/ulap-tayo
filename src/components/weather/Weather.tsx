@@ -217,9 +217,6 @@ useEffect(() => {
     return () => clearInterval(timer);
   }, []);
 
-  const sections = [
-    { id: 'hero', title: 'Current Weather', icon: Sun }
-  ];
 
   // Helper function to get rain intensity description
   const getRainIntensity = (precipitation: number) => {
@@ -267,21 +264,31 @@ useEffect(() => {
               <img src="/weather.svg" alt="Weather Logo" className="h-12 w-12 object-contain" />
               <h1 className="text-2xl font-black">Ulap Tayo</h1>
             </div>
-            <div className="flex space-x-2">
-              {sections.map((section, index) => (
-                <Button
-                  key={section.id}
-                  onClick={() => setActiveSection(index)}
-                  className={`px-6 py-3 font-black text-sm rounded-none border-2 transition-all duration-300 ${
-                    activeSection === index
-                      ? 'bg-sky-400 text-black border-sky-400 shadow-[4px_4px_0px_0px_rgba(56,189,248,0.3)]'
-                      : 'bg-transparent text-white border-white hover:bg-white hover:text-black'
-                  }`}
-                >
-                  <section.icon className="w-4 h-4 mr-2" />
-                  {section.title}
-                </Button>
-              ))}
+            <div className="flex items-center">
+              {/* Only Detect My Location Button remains */}
+              <Button
+                onClick={() => {
+                  if ("geolocation" in navigator) {
+                    setIsLoading(true);
+                    navigator.geolocation.getCurrentPosition(
+                      (position) => {
+                        setLatitude(position.coords.latitude);
+                        setLongitude(position.coords.longitude);
+                        setIsLoading(true);
+                      },
+                      (error) => {
+                        setIsLoading(false);
+                        alert("Unable to detect location. Please allow location access or try again.");
+                      }
+                    );
+                  } else {
+                    alert("Geolocation is not supported by your browser.");
+                  }
+                }}
+                className="ml-4 px-6 py-3 font-black text-sm rounded-none border-2 transition-all duration-300 bg-sky-400 text-black border-sky-400 shadow-[4px_4px_0px_0px_rgba(56,189,248,0.3)] hover:bg-white hover:text-black"
+              >
+                📍 Detect My Location
+              </Button>
             </div>
           </div>
         </div>
