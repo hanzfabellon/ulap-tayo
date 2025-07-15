@@ -1,3 +1,4 @@
+
 # Ulap Tayo - An Open-Source Weather Forecast Web App
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
@@ -101,3 +102,7 @@ Your application should now be running on `http://localhost:5173`.
 ### 📜 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
+
+# ulap-tayo
+An open-source weather web application using Open Meteo API with features like timeline of chance of rain, location selection, and more!
+
