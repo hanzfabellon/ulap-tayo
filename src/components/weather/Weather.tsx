@@ -20,7 +20,6 @@ const handleLocationChange = (lat: number, lng: number) => {
 };
 
   const [currentTime, setCurrentTime] = useState(new Date());
-  const [activeSection, setActiveSection] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   interface WeatherData {
     current: CurrentWeather;
@@ -30,7 +29,6 @@ const handleLocationChange = (lat: number, lng: number) => {
 
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
   const [lastFetchTime, setLastFetchTime] = useState<number | null>(null);
-  const [error, setError] = useState<string | null>(null);
 
   // Weather code mapping
 interface CurrentWeather {
@@ -113,7 +111,6 @@ useEffect(() => {
   
   const fetchWeatherAndLocation = async () => {
     setIsLoading(true);
-    setError(null);
     
     try {
       // Fetch both weather and location data simultaneously
@@ -201,7 +198,6 @@ useEffect(() => {
     } catch (err) {
       if (!cancelled) {
         console.error('Failed to fetch weather data:', err);
-        setError('Failed to load weather data. Please try again.');
         setIsLoading(false);
       }
     }
@@ -241,7 +237,6 @@ useEffect(() => {
           </div>
           <h2 className="text-4xl font-black text-white mb-4">LOADING WEATHER</h2>
           <p className="text-sky-400 text-xl font-bold">FETCHING LATEST FORECAST...</p>
-          {error && <p className="text-red-400 text-lg mt-2">{error}</p>}
           {nextFetchTime && (
             <p className="text-gray-400 text-sm mt-2">Next update: {nextFetchTime.toLocaleTimeString()}</p>
           )}
