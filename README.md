@@ -20,6 +20,7 @@ A feature-rich, interactive weather forecast website built with React, Vite, Lea
 *   **24-Hour Forecast:** Detailed hourly breakdown of temperature and precipitation probability.
 *   **7-Day Extended Forecast:** Plan your week with daily high/low temperatures and weather conditions.
 *   **Interactive Map:** Click anywhere on the map to instantly get the weather for that location, powered by Leaflet and OpenStreetMap.
+*   **Location Detection:** Get instant weather for your exact spot. Click the "Detect your Location" button at the top right to automatically detect your current location!
 *   **Reverse Geocoding:** Automatically fetches and displays the name of the selected location.
 *   **Responsive Design:** Looks great on both desktop and mobile devices.
 
