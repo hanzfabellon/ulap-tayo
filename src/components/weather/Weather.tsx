@@ -9,10 +9,7 @@ import MapSelector from './MapSelector.tsx';
 const WeatherWebsite = () => {
   const [latitude, setLatitude] = useState<number>(14.301793834793234);
   const [longitude, setLongitude] = useState<number>(120.95672712521728);
-  // Remove: const [locationName, setLocationName] = useState<string>("SM Dasmarinas, Dasmarinas, Cavite");
 
-
-// Updated handleLocationChange - just sets coordinates and loading
 const handleLocationChange = (lat: number, lng: number) => {
   setLatitude(lat);
   setLongitude(lng);
@@ -30,7 +27,7 @@ const handleLocationChange = (lat: number, lng: number) => {
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
   const [lastFetchTime, setLastFetchTime] = useState<number | null>(null);
 
-  // Weather code mapping
+
 interface CurrentWeather {
     temp: number;
     condition: string;
@@ -105,7 +102,7 @@ const getWeatherInfo = (code: number): WeatherDescription => {
     return weatherDescriptions[code] || { description: 'Unknown', icon: '❓' };
 };
 
-// Updated useEffect - fetches both weather and location name together
+
 useEffect(() => {
   let cancelled = false;
   
@@ -113,7 +110,7 @@ useEffect(() => {
     setIsLoading(true);
     
     try {
-      // Fetch both weather and location data simultaneously
+
       const [weatherResponse, locationResponse] = await Promise.all([
         fetch(`https://api.open-meteo.com/v1/forecast?${new URLSearchParams({
           latitude: latitude.toString(),
@@ -147,10 +144,6 @@ useEffect(() => {
         }
       }
 
-      // Update location name immediately
-      // setLocationName(newLocationName); // This line is removed as per the edit hint
-
-      // Process weather data
       const currentHour = new Date().getHours();
       const currentWeather = getWeatherInfo(weatherData.hourly.weather_code[currentHour]);
       
@@ -159,7 +152,7 @@ useEffect(() => {
           temp: Math.round(weatherData.hourly.temperature_2m[currentHour]),
           condition: currentWeather.description,
           icon: currentWeather.icon,
-          location: newLocationName, // Use the fresh location name
+          location: newLocationName, 
           humidity: Math.round(weatherData.hourly.relative_humidity_2m[currentHour]),
           windSpeed: Math.round(weatherData.hourly.wind_speed_10m[currentHour]),
           pressure: Math.round(weatherData.hourly.surface_pressure[currentHour]),
@@ -207,14 +200,12 @@ useEffect(() => {
   return () => { cancelled = true; };
 }, [latitude, longitude]);
 
-  // Update time every second
   useEffect(() => {
     const timer = setInterval(() => setCurrentTime(new Date()), 1000);
     return () => clearInterval(timer);
   }, []);
 
 
-  // Helper function to get rain intensity description
   const getRainIntensity = (precipitation: number) => {
     if (precipitation === 0) return { text: 'No Chance  ', color: 'text-green-400', bg: 'bg-green-500' };
     if (precipitation <= 20) return { text: 'Small Chance ', color: 'text-blue-300', bg: 'bg-blue-400' };
@@ -245,7 +236,7 @@ useEffect(() => {
     );
   }
 
-  // Get current hour index for hourly data
+
   const currentHour = new Date().getHours();
   const currentHourlyData = weatherData.hourly.slice(currentHour, currentHour + 24);
 
