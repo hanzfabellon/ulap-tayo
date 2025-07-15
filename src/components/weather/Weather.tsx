@@ -288,16 +288,16 @@ useEffect(() => {
       </nav>
 
       {/* Map Selector Section */}
-      <section className="bg-black relative z-10 mt-24">
-        <div className="max-w-full mx-auto">
-          <MapSelector onLocationChange={handleLocationChange} initialLatitude={latitude} initialLongitude={longitude} />
-        </div>
-      </section>
+      <section className="bg-black relative z-10 h-[480px]"> {/* Fixed height: 400px map + 80px top space */}
+  <div className="max-w-full mx-auto pt-20">
+    <MapSelector onLocationChange={handleLocationChange} initialLatitude={latitude} initialLongitude={longitude} />
+  </div>
+</section>
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-sky-900 via-purple-900 to-black opacity-50"></div>
-        
+      <section className="flex items-center justify-center relative overflow-hidden py-20"> {/* Remove min-h-screen, add py-20 */}
+  <div className="absolute inset-0 bg-gradient-to-br from-sky-900 via-purple-900 to-black opacity-50"></div>
+   
         {/* Animated Background Elements - Static positions */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute bg-sky-400 opacity-10 w-64 h-64 left-10 top-20"></div>
