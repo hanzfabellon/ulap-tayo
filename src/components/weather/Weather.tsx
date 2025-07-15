@@ -1,15 +1,15 @@
 // Weather.tsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Cloud, Sun, CloudRain, Thermometer, Wind, Droplets, Eye, Gauge, MapPin, Calendar, Clock, TrendingUp, Zap, Snowflake, Umbrella } from 'lucide-react';
+import { Cloud, Sun, CloudRain, Thermometer, Wind, Droplets, Eye, Gauge, MapPin, Calendar, Clock, TrendingUp, Umbrella } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
 import MapSelector from './MapSelector.tsx';
 
 const WeatherWebsite = () => {
   const [latitude, setLatitude] = useState<number>(14.301793834793234);
   const [longitude, setLongitude] = useState<number>(120.95672712521728);
-  const [locationName, setLocationName] = useState<string>("SM Dasmarinas, Dasmarinas, Cavite");
+  // Remove: const [locationName, setLocationName] = useState<string>("SM Dasmarinas, Dasmarinas, Cavite");
 
 
 // Updated handleLocationChange - just sets coordinates and loading
@@ -151,7 +151,7 @@ useEffect(() => {
       }
 
       // Update location name immediately
-      setLocationName(newLocationName);
+      // setLocationName(newLocationName); // This line is removed as per the edit hint
 
       // Process weather data
       const currentHour = new Date().getHours();

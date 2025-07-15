@@ -112,23 +112,25 @@ const MapSelector = ({
       
       {/* Full screen map */}
       <div className="h-full w-full">
-        {/* @ts-ignore: center prop is valid at runtime */}
+        {/* @ts-ignore */}
         <MapContainer
-          center={[initialLatitude, initialLongitude] as [number, number]}
+          // @ts-ignore
+          center={[initialLatitude, initialLongitude]}
           zoom={13}
-          style={{ height: '100%', width: '100%' }}
+          style={{ height: '400px', width: '100%' }}
           whenCreated={(mapInstance: any) => {
             mapRef.current = mapInstance;
           }}
         >
-          {/* @ts-ignore: attribution prop is valid at runtime */}
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            // @ts-ignore
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           />
-          {/* @ts-ignore: icon prop is valid at runtime */}
+          {/* @ts-ignore */}
           <Marker
-            position={[initialLatitude, initialLongitude] as [number, number]}
+            position={[initialLatitude, initialLongitude]}
+            // @ts-ignore
             icon={markerIcon}
             draggable={true}
             eventHandlers={{ dragend: handleMarkerDragEnd }}

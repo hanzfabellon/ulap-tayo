@@ -1,8 +1,6 @@
 // src/app/page.tsx
-import React from "react";
 import Weather from "./components/weather/Weather";
 import Header from "./components/layout/Header.tsx";
-import WeatherInsights from "./components/weather/WeatherInsights";
 import LocationComparison from "./components/weather/LocationComparison";
 import Footer from "./components/layout/Footer.tsx";
 
@@ -23,9 +21,8 @@ export default function HomePage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
           <div className="lg:col-span-2">
-            <Weather latitude={52.52} longitude={13.41} locationName="Berlin, DE" />
+            <Weather />
           </div>
-          <WeatherInsights />
         </div>
 
         <LocationComparison />

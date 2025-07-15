@@ -1,6 +1,5 @@
 // src/components/comparison/LocationComparison.tsx
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 const LocationComparison = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -14,10 +13,7 @@ const LocationComparison = () => {
   ];
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.4, duration: 0.5 }}
+    <div
       className="bg-white border-4 border-black shadow-[12px_12px_0_0_rgba(0,0,0,1)] p-6 md:p-8"
     >
       <div className="flex justify-between items-center mb-6">
@@ -27,10 +23,8 @@ const LocationComparison = () => {
       
       <div className="flex flex-wrap gap-2 mb-6">
         {cities.map((city, index) => (
-          <motion.button
+          <button
             key={index}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
             className={`px-4 py-2 font-bold border-2 border-black ${
               activeTab === index 
                 ? 'bg-black text-white' 
@@ -39,7 +33,7 @@ const LocationComparison = () => {
             onClick={() => setActiveTab(index)}
           >
             {city.name}
-          </motion.button>
+          </button>
         ))}
       </div>
       
@@ -48,14 +42,11 @@ const LocationComparison = () => {
           <div className="border-2 border-black p-4 h-full">
             <h3 className="font-bold text-lg mb-4">Temperature Trends</h3>
             <div className="h-64 flex items-end space-x-2">
-              {[20, 18, 22, 19, 25, 23, 21].map((value, index) => (
-                <motion.div
+              {[20, 18, 22, 19, 25, 23, 21].map((_, index) => (
+                <div
                   key={index}
-                  initial={{ height: 0 }}
-                  animate={{ height: `${value * 3}px` }}
-                  transition={{ duration: 1, delay: index * 0.1 }}
                   className="bg-blue-500 w-full"
-                ></motion.div>
+                ></div>
               ))}
             </div>
           </div>
@@ -89,7 +80,7 @@ const LocationComparison = () => {
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

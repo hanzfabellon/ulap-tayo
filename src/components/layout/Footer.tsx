@@ -1,6 +1,4 @@
 // src/components/layout/Footer.tsx
-import React from 'react';
-import { motion } from 'framer-motion';
 
 const Footer = () => {
   return (
@@ -19,13 +17,12 @@ const Footer = () => {
               <h4 className="font-bold text-lg mb-4">{section}</h4>
               <ul className="space-y-2 text-gray-400">
                 {Array.from({ length: 4 }, (_, i) => (
-                  <motion.li 
+                  <li 
                     key={i}
-                    whileHover={{ x: 5 }}
                     className="cursor-pointer hover:text-white transition-colors"
                   >
                     {section} Feature {i + 1}
-                  </motion.li>
+                  </li>
                 ))}
               </ul>
             </div>
@@ -38,14 +35,13 @@ const Footer = () => {
           </div>
           <div className="flex space-x-6">
             {['Twitter', 'GitHub', 'LinkedIn', 'Instagram'].map((social) => (
-              <motion.a 
+              <a 
                 key={social}
                 href="#"
-                whileHover={{ y: -3 }}
                 className="text-gray-400 hover:text-white transition-colors"
               >
                 {social}
-              </motion.a>
+              </a>
             ))}
           </div>
         </div>
