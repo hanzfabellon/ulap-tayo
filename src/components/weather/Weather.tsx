@@ -625,7 +625,7 @@ useEffect(() => {
           <p className="text-white font-bold">© Ulap Tayo - 2025 - Powered by Open Meteo, OpenStreetMap, and LocationIQ</p>
           <div className="flex justify-center items-center gap-2 mt-2">
             <a
-              href="https://github.com/hanzfabellon"
+              href="https://github.com/hanzfabellon/ulap-tayo"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center text-sky-400 hover:text-white transition-colors"
