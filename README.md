@@ -14,6 +14,8 @@ A feature-rich, interactive weather forecast website built with React, Vite, Lea
 
 ![Ulap Tayo Demo](https://github.com/hanzfabellon/ulap-tayo/blob/main/demo.gif?raw=true)
 
+**[➡️ View the Live Demo](https://ulap-tayo.vercel.app/)**
+
 ### ✅ Features
 
 *   **Current Weather:** Real-time temperature, conditions, "feels like," humidity, wind speed, and more.
@@ -103,7 +105,3 @@ Your application should now be running on `http://localhost:5173`.
 ### 📜 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
-
-# ulap-tayo
-An open-source weather web application using Open Meteo API with features like timeline of chance of rain, location selection, and more!
-
