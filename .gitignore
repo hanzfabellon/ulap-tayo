@@ -23,8 +23,5 @@ dist-ssr
 *.sln
 *.sw?
 
-
-# .gitignore
-
-# ... other ignored files
+# environment variables
 .env.local

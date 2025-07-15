@@ -271,7 +271,7 @@ useEffect(() => {
                         setLongitude(position.coords.longitude);
                         setIsLoading(true);
                       },
-                      (error) => {
+                      () => {
                         setIsLoading(false);
                         alert("Unable to detect location. Please allow location access or try again.");
                       }
